@@ -1,0 +1,144 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    tools:context="com.example.andrew.comp3717project.Register"
+    android:id="@+id/register_main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/design_register_background"
+        android:layout_below="@+id/register_header"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentTop="false"
+        android:id="@+id/registerHeader">
+
+        <EditText
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstName"
+            android:textSize="20dp"
+            android:layout_marginBottom="68dp"
+            android:layout_above="@+id/button"
+            android:layout_alignLeft="@+id/lastName"
+            android:layout_alignStart="@+id/lastName" />
+
+        <EditText
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/lastName"
+            android:textSize="20dp"
+            android:layout_marginBottom="33dp"
+            android:layout_above="@+id/firstName"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_toEndOf="@+id/textView" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:hint="Username"
+            android:textSize="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="40dp"
+            android:gravity="center"
+            android:textColorHint="#ff60b0e7"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:hint="Password"
+            android:textSize="20dp"
+            android:layout_below="@+id/editText"
+            android:layout_marginTop="31dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:layout_alignLeft="@+id/editText"
+            android:layout_alignStart="@+id/editText"
+            android:textColorHint="#ff60b0e7"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText3"
+            android:hint="Email"
+            android:textSize="20dp"
+            android:layout_below="@+id/editText2"
+            android:layout_marginTop="31dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:layout_alignLeft="@+id/editText"
+            android:layout_alignStart="@+id/editText"
+            android:textColorHint="#ff60b0e7"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            android:id="@+id/button"
+            android:background="@drawable/design_register_submit"
+            android:textColor="#FFFFFF"
+            android:singleLine="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/editText3"
+            android:layout_alignStart="@+id/editText3"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Name:"
+            android:id="@+id/textView"
+            android:textSize="20dp"
+            android:layout_alignBottom="@+id/lastName"
+            android:layout_alignLeft="@+id/editText3"
+            android:layout_alignStart="@+id/editText3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name:"
+            android:id="@+id/textView2"
+            android:textSize="20dp"
+            android:layout_alignBottom="@+id/firstName"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/design_register_header"
+        android:id="@+id/register_header">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BACK"
+            android:id="@+id/button2"
+            android:background="@drawable/design_register_exit"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+</RelativeLayout>
