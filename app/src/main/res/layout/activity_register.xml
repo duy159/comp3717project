@@ -85,7 +85,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign up"
+            android:text="test"
             android:id="@+id/button"
             android:background="@drawable/design_register_submit"
             android:textColor="#FFFFFF"
