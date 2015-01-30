@@ -85,15 +85,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test"
+            android:text="Submit"
             android:id="@+id/button"
             android:background="@drawable/design_register_submit"
             android:textColor="#FFFFFF"
             android:singleLine="true"
+            android:layout_marginBottom="20dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/editText3"
-            android:layout_alignStart="@+id/editText3"
-            android:layout_marginBottom="20dp" />
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"
