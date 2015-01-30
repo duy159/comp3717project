@@ -20,32 +20,10 @@
         android:id="@+id/registerHeader">
 
         <EditText
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/firstName"
-            android:textSize="20dp"
-            android:layout_marginBottom="68dp"
-            android:layout_above="@+id/registerButton01"
-            android:layout_alignLeft="@+id/lastName"
-            android:layout_alignStart="@+id/lastName"
-            android:singleLine="true" />
-
-        <EditText
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/lastName"
-            android:textSize="20dp"
-            android:layout_marginBottom="33dp"
-            android:layout_above="@+id/firstName"
-            android:layout_toRightOf="@+id/textView"
-            android:layout_toEndOf="@+id/textView"
-            android:singleLine="true" />
-
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText"
-            android:hint="Username"
+            android:hint="Username/Email"
             android:textSize="20dp"
             android:layout_marginTop="40dp"
             android:layout_alignParentTop="true"
@@ -72,53 +50,29 @@
             android:textColorHint="#ff60b0e7"
             android:singleLine="true" />
 
-        <EditText
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText3"
-            android:hint="Email"
-            android:textSize="20dp"
-            android:layout_below="@+id/editText2"
-            android:layout_marginTop="31dp"
-            android:layout_marginRight="40dp"
-            android:gravity="center"
-            android:layout_alignLeft="@+id/editText"
-            android:layout_alignStart="@+id/editText"
-            android:textColorHint="#ff60b0e7"
-            android:singleLine="true" />
+            android:text="Login"
+            android:id="@+id/button"
+            android:background="@drawable/design_register_submit"
+            android:textColor="#FFFFFF"
+            android:singleLine="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Register"
-            android:id="@+id/registerButton01"
+            android:id="@+id/button3"
             android:background="@drawable/design_register_submit"
             android:textColor="#FFFFFF"
             android:singleLine="true"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/editText3"
-            android:layout_alignStart="@+id/editText3"
-            android:layout_marginBottom="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="First Name:"
-            android:id="@+id/textView"
-            android:textSize="20dp"
-            android:layout_alignBottom="@+id/lastName"
-            android:layout_alignLeft="@+id/editText3"
-            android:layout_alignStart="@+id/editText3" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Last Name:"
-            android:id="@+id/textView2"
-            android:textSize="20dp"
-            android:layout_alignBottom="@+id/firstName"
-            android:layout_alignLeft="@+id/textView"
-            android:layout_alignStart="@+id/textView" />
+            android:layout_below="@+id/button"
+            android:layout_alignLeft="@+id/button"
+            android:layout_alignStart="@+id/button"
+            android:layout_marginTop="44dp" />
 
     </RelativeLayout>
 
