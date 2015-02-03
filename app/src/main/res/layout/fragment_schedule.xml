@@ -6,6 +6,11 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/page_partners"
+            android:text="@string/page_schedule"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="514dp"
+        android:id="@+id/calendarView" />
 </LinearLayout>
