@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.mongodb.Mongo;
 
 
 public class Login extends Activity {
@@ -18,6 +21,12 @@ public class Login extends Activity {
         Button login = (Button) findViewById(R.id.button);
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                 String user, pass,error ="error";
+               user = ((EditText)findViewById(R.id.editText)).getText().toString();
+                pass = ((EditText)findViewById(R.id.editText2)).getText().toString();
+                 MongoAccess mongoLogin = new MongoAccess();
+                //  if(mongoLogin.getUser(user,pass).equals(error))
+
                 Intent loginIntent = new Intent(view.getContext(), MainActivity.class);
                 startActivityForResult(loginIntent, 0);
             }
