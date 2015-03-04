@@ -86,18 +86,5 @@
         android:background="@drawable/design_register_header"
         android:id="@+id/register_header">
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BACK"
-            android:id="@+id/button2"
-            android:background="@drawable/design_register_exit"
-            android:singleLine="true"
-            android:textColor="#FFFFFF"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
     </RelativeLayout>
 </RelativeLayout>
