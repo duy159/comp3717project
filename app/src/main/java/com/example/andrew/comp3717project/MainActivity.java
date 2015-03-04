@@ -20,7 +20,7 @@ public class MainActivity extends ActionBarActivity {
         // setup action bar for tabs
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        actionBar.setDisplayShowTitleEnabled(false);
+       // actionBar.setDisplayShowTitleEnabled(false);
 
         Tab tab = actionBar.newTab()
                 .setText(R.string.tab_partners)

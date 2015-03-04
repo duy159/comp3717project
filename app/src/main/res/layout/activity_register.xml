@@ -141,7 +141,7 @@
             android:background="@drawable/design_register_exit"
             android:singleLine="true"
             android:textColor="#FFFFFF"
-            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
