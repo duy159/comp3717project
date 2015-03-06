@@ -39,11 +39,10 @@ public class Login extends Activity implements MongoAdapter {
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                if(loginSuccess== true) {
                     Intent loginIntent = new Intent(view.getContext(), MainActivity.class);
                     startActivityForResult(loginIntent, 0);
                 }
-            }
+            
 
         });
 
