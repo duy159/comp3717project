@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class Login extends Activity implements MongoAdapter {
 
     // WB apikey, dbname and collection
-    private static final String API_KEY = "11h4wQ_5jg2QpLBxQ8mIM0C2HYJ54iyE";
+    private static final String API_KEY = "jJ3msXATqWy-ZZ8GwmvZmjQOJZcyLxFD";
     private static final String DB_NAME = "workoutbuddies";
     private static final String COLLECTION_NAME = "registeredUsers";
     //username and pass
