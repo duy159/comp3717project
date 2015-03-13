@@ -69,7 +69,7 @@ public class Mongo {
         new GetTask( context ).execute(url);
     }
 
-    public static boolean getUser( MongoAdapter context, String collection, JSONObject query  ) {
+    public static void getPass( MongoAdapter context, String collection, JSONObject query  ) {
         String url = BASE_URL
                 + context.dbName()
                 + "/collections/" + collection + "?";
@@ -85,14 +85,8 @@ public class Mongo {
         url += "apiKey=" + context.apiKey();
         Log.d("URL", url);
 
-        if (new GetTask(context).execute(url) != null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        new GetPassTask(context).execute(url);
+
     }
 
     /**
@@ -235,7 +229,7 @@ public class Mongo {
                 }
                 else
                 {
-                    result = null;
+                    result = null; // result = null
                 }
 
                 return (result);
@@ -265,7 +259,76 @@ public class Mongo {
         }
 
     }
+    private static class GetPassTask
+            extends AsyncTask<String, Void, String>   // params, progress, result
+    {
+        private final MongoAdapter context;
 
+        public GetPassTask(final MongoAdapter c)
+        {
+            context = c;
+        }
+
+        @Override
+        protected String doInBackground(final String... params)
+        {
+            InputStream inputStream;
+            String      result;
+
+            if(params.length != 1)
+            {
+                throw new IllegalArgumentException("You must provide one uri only");
+            }
+
+            inputStream = null;
+
+            try
+            {
+                final HttpClient httpclient;
+                final HttpGet httpGet;
+                final HttpResponse httpResponse;
+
+                httpclient   = new DefaultHttpClient();
+                httpGet      = new HttpGet( new URI(params[0]) );
+                httpResponse = httpclient.execute(httpGet);
+                inputStream  = httpResponse.getEntity().getContent();
+
+                if(inputStream != null)
+                {
+                    result = convertStreamToString(inputStream);
+                }
+                else
+                {
+                    result = null; // result = null
+                }
+
+                return (result);
+            }
+            catch(final ClientProtocolException ex)
+            {
+                Log.d("InputStream", ex.getLocalizedMessage());
+            }
+            catch(final IOException ex)
+            {
+                Log.d("InputStream", ex.getLocalizedMessage());
+            }
+            catch ( URISyntaxException ex )
+            {
+                Log.d("InputStream", ex.getLocalizedMessage());
+            }
+            return (null);
+        }
+
+        @Override
+        protected void onPostExecute(final String result)
+        {
+            if (result != null)
+            {
+                context.processPass(result);
+            }
+        }
+
+    }
     private static class PostTask
             extends AsyncTask<String, Void, String>   // params, progress, result
     {
@@ -302,7 +365,7 @@ public class Mongo {
                 }
                 else
                 {
-                    result = null;
+                    result = null; //result = null
                 }
 
                 return (result);
@@ -324,7 +387,7 @@ public class Mongo {
 
     }
 
-    private static class PutTask
+       private static class PutTask
             extends AsyncTask<String, Void, String>   // params, progress, result
     {
 
