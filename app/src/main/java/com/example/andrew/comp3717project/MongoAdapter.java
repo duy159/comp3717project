@@ -31,4 +31,6 @@ public interface MongoAdapter {
      * @param result The result string returned by the HTTP request.
      */
     public void processResult(String result);
+
+    public void processPass(String result);
 }

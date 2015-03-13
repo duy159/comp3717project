@@ -16,35 +16,18 @@ import org.json.JSONObject;
 public class Login extends Activity implements MongoAdapter {
 
     // WB apikey, dbname and collection
-    private static final String API_KEY = "jJ3msXATqWy-ZZ8GwmvZmjQOJZcyLxFD";
+    private static final String API_KEY = "11h4wQ_5jg2QpLBxQ8mIM0C2HYJ54iyE";
     private static final String DB_NAME = "workoutbuddies";
     private static final String COLLECTION_NAME = "registeredUsers";
-    //username and pass
-    private String user, pass;
     //boolean for login
-    public boolean loginSuccess = false;
+    public boolean okUser = false;
+    public boolean okPass = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
-        JSONObject user = new JSONObject();
-        String collection = COLLECTION_NAME;
-        String myUserName =((EditText) findViewById(R.id.editText)).getText().toString();
-        String myPass = ((EditText) findViewById(R.id.editText2)).getText().toString();
-        String incorrect = "Incorrect user/pass.";
-
-        Button login = (Button) findViewById(R.id.button);
-        login.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-
-                    Intent loginIntent = new Intent(view.getContext(), MainActivity.class);
-                    startActivityForResult(loginIntent, 0);
-                }
-            
-
-        });
 
         Button register = (Button) findViewById(R.id.button3);
        register.setOnClickListener(new View.OnClickListener() {
@@ -69,34 +52,47 @@ public class Login extends Activity implements MongoAdapter {
 
     @Override
     public void processResult(String result) {
+        String incorrect = "Incorrect user/pass";
+        if (result.equals("[  ]")) {
+                okUser = false;
+                Toast.makeText(this,incorrect,Toast.LENGTH_SHORT).show();
+        } else {
+            okUser = true;
+        }
+    }
+    public void processPass(String result) {
+        String incorrect = "Incorrect user/pass.";
 
+        if (result.equals("[  ]")) {
+            okPass = false;
+            Toast.makeText(this,incorrect,Toast.LENGTH_SHORT).show();
+        } else {
+            okPass = true;
+        }
     }
 
+
     // Callback method that tests the MongoLab REST api
-    public void goMongo(View v) throws JSONException {
+
+    public void loginMongo(View v) throws JSONException {
         JSONObject user = new JSONObject();
+        JSONObject pass = new JSONObject();
         String collection = COLLECTION_NAME;
         String myUserName =((EditText) findViewById(R.id.editText)).getText().toString();
         String myPass = ((EditText) findViewById(R.id.editText2)).getText().toString();
-        String incorrect = "Incorrect user/pass.";
+
         // Passing null as the third parameter will return all documents in the collection
 
-       if(Mongo.getUser(this, collection, user.put("user", myUserName)))
-       {
-            if(Mongo.getUser(this, collection, user.put("pass", myPass)))
-            {
-                loginSuccess = true;
-            }
-           else
-            {
-                Toast.makeText( this, incorrect, Toast.LENGTH_LONG ).show();
-            }
-       }
-        else
-       {
-           Toast.makeText(this, incorrect, Toast.LENGTH_LONG).show();
-       }
+        Mongo.get( this, collection, user.put("user","moxd"));
+        Mongo.getPass(this,collection, pass.put("pass",myPass));
 
+        if(okUser == true && okPass == true)
+        {
+            okUser = false;
+            okPass = false;
+            Toast.makeText(this,"Login success!",Toast.LENGTH_SHORT).show();
 
+           startActivity(new Intent(this, MainActivity.class));
+        }
     }
 }

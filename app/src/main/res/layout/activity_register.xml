@@ -98,7 +98,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/editText3"
             android:layout_alignStart="@+id/editText3"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:onClick="registerMongo"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -106,7 +107,7 @@
             android:text="First Name:"
             android:id="@+id/textView"
             android:textSize="20dp"
-            android:layout_alignBottom="@+id/lastName"
+            android:layout_alignBottom="@+id/firstName"
             android:layout_alignLeft="@+id/editText3"
             android:layout_alignStart="@+id/editText3" />
 
@@ -116,7 +117,7 @@
             android:text="Last Name:"
             android:id="@+id/textView2"
             android:textSize="20dp"
-            android:layout_alignBottom="@+id/firstName"
+            android:layout_alignBottom="@+id/lastName"
             android:layout_alignLeft="@+id/textView"
             android:layout_alignStart="@+id/textView" />
 

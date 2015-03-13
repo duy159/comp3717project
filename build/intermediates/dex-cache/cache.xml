@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="E:\comp3717project\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\pre-dexed\debug\classes-62853d1085d76816b77974f3c49eafe95e1ecc8f.jar" />
+        <dex dex="E:\comp3717project\app\build\intermediates\pre-dexed\debug\classes-67b05387d577dd69d0e98f1c4911158e3d6d318e.jar" />
     </item>
     <item
-        jar="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\pre-dexed\debug\classes-40ed2bf4a78a7284dc8551d319a8fabe3aa6c57b.jar" />
-    </item>
-    <item
-        jar="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-4a79d41089afd0e301df1730c795e5b1b5f24dfe.jar" />
-    </item>
-    <item
-        jar="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\pre-dexed\debug\classes-b2470498c06f2e322b0810a97d3d48e3376988eb.jar" />
-    </item>
-    <item
-        jar="C:\Users\Andrew\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="C:\Users\Kevin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-ec3a3868f435666f841bfab8df9187570773c701.jar" />
+        <dex dex="E:\comp3717project\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-5580805ba7594e0a0c8a7b42874207aa019e2684.jar" />
     </item>
     <item
-        jar="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\src\main\external_libs\mongo-java-driver-3.0.0-beta2.jar"
+        jar="E:\comp3717project\app\src\main\external_libs\mongo-java-driver-3.0.0-beta2.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="caa2b840039cf0aa5690c4c79e77b7b33cc0f1aa">
-        <dex dex="D:\BCIT\Term 03\COMP3717 - Mobile AddIn Dev with Android\PROJECT\GitHub\comp3717project\app\build\intermediates\pre-dexed\debug\mongo-java-driver-3.0.0-beta2-b09d2e8365dac67d3fcc3781dad3dd35e46bdc0a.jar" />
+        <dex dex="E:\comp3717project\app\build\intermediates\pre-dexed\debug\mongo-java-driver-3.0.0-beta2-bb328a01044ced5db145317de932197336e8f042.jar" />
+    </item>
+    <item
+        jar="E:\comp3717project\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="E:\comp3717project\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-9d6189ade1df85ed94c8c9a6b2b63918965772b9.jar" />
+    </item>
+    <item
+        jar="E:\comp3717project\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="E:\comp3717project\app\build\intermediates\pre-dexed\debug\classes-d6684b5199f1ec1508f6f1b448894c5ef87fcc90.jar" />
+    </item>
+    <item
+        jar="E:\comp3717project\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="E:\comp3717project\app\build\intermediates\pre-dexed\debug\classes-519eb2cde29e4837b313b8bbabae319297a2233d.jar" />
     </item>
 
 </items>

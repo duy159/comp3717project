@@ -59,7 +59,8 @@
             android:textColor="#FFFFFF"
             android:singleLine="true"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="loginMongo"/>
 
         <Button
             android:layout_width="wrap_content"
