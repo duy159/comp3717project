@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,6 +23,16 @@ public class Login extends Activity implements MongoAdapter {
     //boolean for login
     public boolean okUser = false;
     public boolean okPass = false;
+    //user info
+    public String globalUser;
+    public String globalFirst;
+    public String globalLast;
+    public String globalEmail;
+    public String globalPass;
+    public String globalDay;
+    public String globalTime;
+    public String globalPlace;
+    public String globalProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +70,23 @@ public class Login extends Activity implements MongoAdapter {
         } else {
             okUser = true;
         }
+        JSONArray resultArray = new JSONArray();
+        try {
+            JSONObject myUser = new JSONObject(resultArray.getString(0));
+            globalUser = myUser.getString("user");
+            globalFirst = myUser.getString("first");
+            globalLast  = myUser.getString("last");
+            globalEmail = myUser.getString("email");
+            globalPass = myUser.getString("pass");
+            globalDay = myUser.getString("day");
+            globalTime = myUser.getString("time");
+            globalPlace = myUser.getString("place");
+            globalProfile = myUser.getString("profile");
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
     public void processPass(String result) {
         String incorrect = "Incorrect user/pass.";
