@@ -23,18 +23,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
 
-/**
- *
- *
- * All class methods can be used statically to make HTTP Requests to a MongoLab database
- * hosted in the cloud using the MongoDB REST API documented @ http://docs.mongolab.com/restapi/.
- * Class methods do not have mechanism for all the optional parameters illustrated in the
- * documentation, but can be easily modified to suit the needs of the application.
- *
- * Any Activities or Classes wishing to use this class must implement the MongoAdapter Interface
- * and pass themselves as the first parameter in each of the methods.
- *
- */
 public class Mongo {
 
     private static final String BASE_URL = "https://api.mongolab.com/api/1/databases/";
@@ -67,26 +55,6 @@ public class Mongo {
         url += "apiKey=" + context.apiKey();
         Log.d( "URL", url );
         new GetTask( context ).execute(url);
-    }
-
-    public static void getPass( MongoAdapter context, String collection, JSONObject query  ) {
-        String url = BASE_URL
-                + context.dbName()
-                + "/collections/" + collection + "?";
-
-        if (query != null) {
-            try {
-                url += "q=" + URLEncoder.encode(query.toString(), "UTF-8") + "&";
-            } catch (UnsupportedEncodingException e) {
-                Log.d("URLEncoder", e.getLocalizedMessage());
-            }
-        }
-
-        url += "apiKey=" + context.apiKey();
-        Log.d("URL", url);
-
-        new GetPassTask(context).execute(url);
-
     }
 
     /**
@@ -161,7 +129,7 @@ public class Mongo {
      *
      * @param is InputStream to convert
      * @return Converted InputStream as a String
-     * @throws java.io.IOException
+     * @throws IOException
      */
     private static String convertStreamToString(final InputStream is)
             throws IOException {
@@ -259,76 +227,7 @@ public class Mongo {
         }
 
     }
-    private static class GetPassTask
-            extends AsyncTask<String, Void, String>   // params, progress, result
-    {
-        private final MongoAdapter context;
 
-        public GetPassTask(final MongoAdapter c)
-        {
-            context = c;
-        }
-
-        @Override
-        protected String doInBackground(final String... params)
-        {
-            InputStream inputStream;
-            String      result;
-
-            if(params.length != 1)
-            {
-                throw new IllegalArgumentException("You must provide one uri only");
-            }
-
-            inputStream = null;
-
-            try
-            {
-                final HttpClient httpclient;
-                final HttpGet httpGet;
-                final HttpResponse httpResponse;
-
-                httpclient   = new DefaultHttpClient();
-                httpGet      = new HttpGet( new URI(params[0]) );
-                httpResponse = httpclient.execute(httpGet);
-                inputStream  = httpResponse.getEntity().getContent();
-
-                if(inputStream != null)
-                {
-                    result = convertStreamToString(inputStream);
-                }
-                else
-                {
-                    result = null; // result = null
-                }
-
-                return (result);
-            }
-            catch(final ClientProtocolException ex)
-            {
-                Log.d("InputStream", ex.getLocalizedMessage());
-            }
-            catch(final IOException ex)
-            {
-                Log.d("InputStream", ex.getLocalizedMessage());
-            }
-            catch ( URISyntaxException ex )
-            {
-                Log.d("InputStream", ex.getLocalizedMessage());
-            }
-            return (null);
-        }
-
-        @Override
-        protected void onPostExecute(final String result)
-        {
-            if (result != null)
-            {
-                context.processPass(result);
-            }
-        }
-
-    }
     private static class PostTask
             extends AsyncTask<String, Void, String>   // params, progress, result
     {
@@ -365,7 +264,7 @@ public class Mongo {
                 }
                 else
                 {
-                    result = null; //result = null
+                    result = null;
                 }
 
                 return (result);
@@ -387,7 +286,7 @@ public class Mongo {
 
     }
 
-       private static class PutTask
+    private static class PutTask
             extends AsyncTask<String, Void, String>   // params, progress, result
     {
 

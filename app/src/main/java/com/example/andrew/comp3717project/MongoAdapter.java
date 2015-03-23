@@ -32,5 +32,4 @@ public interface MongoAdapter {
      */
     public void processResult(String result);
 
-    public void processPass(String result);
 }

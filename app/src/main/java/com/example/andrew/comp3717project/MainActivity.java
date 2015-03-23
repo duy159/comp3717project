@@ -9,10 +9,19 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
-public class MainActivity extends ActionBarActivity {
-
+public class MainActivity extends ActionBarActivity implements MongoAdapter {
+    // WB apikey, dbname and collection
+    private static final String API_KEY = "11h4wQ_5jg2QpLBxQ8mIM0C2HYJ54iyE";
+    private static final String DB_NAME = "workoutbuddies";
+    private static final String COLLECTION_NAME = "registeredUsers";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +64,53 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
+
+
+    public String dbName()
+    {
+        return DB_NAME;
+    }
+
+    // Method should return the API Key as shown at the bottom of the MongoLab user page
+    public String apiKey()
+    {
+        return API_KEY;
+    }
+
+
+    @Override
+    public void processResult(String result) {
+
+    }
+    public void editProfile(View v)
+    {
+        String success = "Profile Edited!";
+        String collection = COLLECTION_NAME;
+        JSONObject editUser = new JSONObject();
+        String myUser = Login.getGlobalUser();
+        String editProfile = ((EditText) findViewById(R.id.editText6)).getText().toString();
+        String editPhone = ((EditText) findViewById(R.id.editText5)).getText().toString();
+        String editEmail = ((EditText) findViewById(R.id.editText4)).getText().toString();
+        try {
+            Mongo.put(this, collection, editUser.put("user",myUser), editUser.put("profile", editProfile));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            Mongo.put(this, collection, editUser.put("user",myUser), editUser.put("email", editEmail));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            Mongo.put(this, collection, editUser.put("user",myUser), editUser.put("phone", editPhone));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Login.setGlobalProfile(editProfile);
+        Login.setGlobalEmail(editEmail);
+        Login.setGlobalPhone(editPhone);
+        Toast.makeText(this, success, Toast.LENGTH_SHORT).show();
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

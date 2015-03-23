@@ -1,6 +1,7 @@
 package com.example.andrew.comp3717project;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -52,9 +53,10 @@ public class Register extends Activity implements MongoAdapter {
         Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("time","12:00pm"));
         Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("place","gym"));
         Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("profile","put description here"));
-        /*
-        Intent loginIntent = new Intent(v.getContext(), MainActivity.class);
-        startActivityForResult(loginIntent, 0);*/
+        Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("phone","000000000"));
+
+        Intent registerIntent = new Intent(v.getContext(), Login.class);
+        startActivityForResult(registerIntent, 0);
 
     }
 
@@ -70,11 +72,6 @@ public class Register extends Activity implements MongoAdapter {
 
     @Override
     public void processResult(String result) {
-
-    }
-
-    @Override
-    public void processPass(String result) {
 
     }
 }
