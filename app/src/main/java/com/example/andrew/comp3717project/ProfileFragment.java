@@ -17,7 +17,6 @@ public class ProfileFragment extends Fragment  implements MongoAdapter{
     private static final String API_KEY = "11h4wQ_5jg2QpLBxQ8mIM0C2HYJ54iyE";
     private static final String DB_NAME = "workoutbuddies";
     private static final String COLLECTION_NAME = "registeredUsers";
-
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState )
     {
@@ -29,34 +28,7 @@ public class ProfileFragment extends Fragment  implements MongoAdapter{
             public void onClick(View v)
             {
                 // do something
-               // editProfile(v);
-                String success = "Profile Edited!";
-                String collection = COLLECTION_NAME;
-                JSONObject editUser = new JSONObject();
-                String myUser = Login.getGlobalUser();
-                String editProfile = ((EditText) v.findViewById(R.id.editText6)).getText().toString();
-                String editPhone = ((EditText) v.findViewById(R.id.editText5)).getText().toString();
-                String editEmail = ((EditText) v.findViewById(R.id.editText4)).getText().toString();
-                try {
-                    Mongo.put(ProfileFragment.this, collection, editUser.put("user",myUser), editUser.put("profile", editProfile));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    Mongo.put(ProfileFragment.this, collection, editUser.put("user",myUser), editUser.put("email", editEmail));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    Mongo.put(ProfileFragment.this, collection, editUser.put("user",myUser), editUser.put("phone", editPhone));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                Login.setGlobalProfile(editProfile);
-                Login.setGlobalEmail(editEmail);
-                Login.setGlobalPhone(editPhone);
-                Toast.makeText(getActivity(), success, Toast.LENGTH_SHORT).show();
-
+                editProfile(v);
             }
         });
         // Inflate the layout for this fragment\

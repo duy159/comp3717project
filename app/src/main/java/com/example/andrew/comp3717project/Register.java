@@ -50,8 +50,7 @@ public class Register extends Activity implements MongoAdapter {
         Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("fname",registerFname));
         Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("lname",registerLname));
         Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("day","monday"));
-        Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("timestart","12:00pm"));
-        Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("timeend","6:00pm"));
+        Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("time","12:00pm"));
         Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("place","gym"));
         Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("profile","put description here"));
         Mongo.put(this, collection,register.put("user",registerUser),registerQuery.put("phone","000000000"));
