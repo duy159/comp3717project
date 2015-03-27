@@ -17,7 +17,8 @@ import org.json.JSONObject;
 public class Login extends Activity implements MongoAdapter {
 
     // WB apikey, dbname and collection
-    private static final String API_KEY = "11h4wQ_5jg2QpLBxQ8mIM0C2HYJ54iyE";
+    private static final String API_KEY = "11h4wQ_5jg2QpLBx" +
+            "Q8mIM0C2HYJ54iyE";
     private static final String DB_NAME = "workoutbuddies";
     private static final String COLLECTION_NAME = "registeredUsers";
     //boolean for login
@@ -78,14 +79,23 @@ public class Login extends Activity implements MongoAdapter {
     {
         globalDay = setDay;
     }
-    public static String globalTime;
-    public static String getGlobalTime()
+    public static String globalTimeStart;
+    public static String getGlobalTimeStart()
     {
-        return globalTime;
+        return globalTimeStart;
     }
-    public static void setGlobalTime(String setTime)
+    public static void setGlobalTimeStart(String setTimeStart)
     {
-        globalTime = setTime;
+        globalTimeStart = setTimeStart;
+    }
+    public static String globalTimeEnd;
+    public static String getGlobalTimeEnd()
+    {
+        return globalTimeEnd;
+    }
+    public static void setGlobalTimeEnd(String setTimeEnd)
+    {
+        globalTimeEnd = setTimeEnd;
     }
     public static String globalPlace;
     public static String getGlobalPlace()
@@ -189,7 +199,8 @@ public class Login extends Activity implements MongoAdapter {
                 globalEmail = resultObject.getString("email");
                 globalPass = resultObject.getString("pass");
                 globalDay = resultObject.getString("day");
-                globalTime = resultObject.getString("time");
+                globalTimeStart = resultObject.getString("timestart");
+                globalTimeEnd = resultObject.getString("timeend");
                 globalPlace = resultObject.getString("place");
                 globalProfile = resultObject.getString("profile");
                 Toast.makeText(this, success,Toast.LENGTH_SHORT).show();
