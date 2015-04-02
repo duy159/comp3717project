@@ -63,6 +63,7 @@ public class PartnersFragment extends Fragment implements MongoAdapter{
                 if(myUserDay.equals(dbDays)) {
                     dbEndTime = resultObject.getString("timeend");
                     dbStartTime = resultObject.getString("timestart");
+                    /*
                     if((Integer.parseInt(myUserStartTime) < Integer.parseInt(dbEndTime) && Integer.parseInt(dbStartTime) < Integer.parseInt(myUserEndTime))
                             || (Integer.parseInt(myUserStartTime) == Integer.parseInt(dbStartTime)))
                      {
@@ -70,7 +71,7 @@ public class PartnersFragment extends Fragment implements MongoAdapter{
 
 
                         dbUsers.add(matchingUser);
-                    }
+                    }*/
                 }
                 allUsers.add(dbUsers);
             }
@@ -82,12 +83,12 @@ public class PartnersFragment extends Fragment implements MongoAdapter{
             e.printStackTrace();
         }
 
-        for(ArrayList x: allUsers) {
+       /* for(ArrayList x: allUsers) {
             //broken. for some reason dbUsers elements are stored as objects and not string. figure this out later
-            /*for(String y: x) {
+            for(String y: x) {
                 Toast.makeText(getActivity(), y, Toast.LENGTH_SHORT).show();
-            }*/
-        }
+            }
+        }*/
 
     }
 }
