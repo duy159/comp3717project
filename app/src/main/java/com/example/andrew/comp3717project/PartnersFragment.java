@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -21,6 +23,7 @@ public class PartnersFragment extends Fragment implements MongoAdapter{
     private static final String API_KEY = "11h4wQ_5jg2QpLBxQ8mIM0C2HYJ54iyE";
     private static final String DB_NAME = "workoutbuddies";
     private static final String COLLECTION_NAME = "registeredUsers";
+    ArrayList<String> dbUsers = new ArrayList<String>();
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState )
     {
@@ -44,13 +47,13 @@ public class PartnersFragment extends Fragment implements MongoAdapter{
     @Override
     public void processResult(String result) {
         String dbDays;
-        String dbStartTime;
-        String dbEndTime;
-        String myUserStartTime = Login.getGlobalTimeStart();
-        String myUserEndTime = Login.getGlobalTimeEnd();
+        int dbStartTime;
+        int dbEndTime;
+        int myUserStartTime = Login.getGlobalTimeStart();
+        int myUserEndTime = Login.getGlobalTimeEnd();
         String myUserDay = Login.getGlobalDay();
         String matchingUser;
-        ArrayList<ArrayList> allUsers = new ArrayList<ArrayList>();
+
 
         JSONArray resultArray = null;
         try {
@@ -58,37 +61,36 @@ public class PartnersFragment extends Fragment implements MongoAdapter{
             for(int i = 0; i < resultArray.length();i++) {
                 JSONObject resultObject = new JSONObject(resultArray.getString(i));
                 dbDays = resultObject.getString("day");
-                ArrayList<String> dbUsers = new ArrayList<String>();
 
                 if(myUserDay.equals(dbDays)) {
-                    dbEndTime = resultObject.getString("timeend");
-                    dbStartTime = resultObject.getString("timestart");
-                    /*
-                    if((Integer.parseInt(myUserStartTime) < Integer.parseInt(dbEndTime) && Integer.parseInt(dbStartTime) < Integer.parseInt(myUserEndTime))
-                            || (Integer.parseInt(myUserStartTime) == Integer.parseInt(dbStartTime)))
+                    dbEndTime = resultObject.getInt("timeend");
+                    dbStartTime = resultObject.getInt("timestart");
+
+                    if((myUserStartTime < dbEndTime && dbStartTime < myUserEndTime)
+                            ||(myUserStartTime == dbStartTime))
                      {
-                        matchingUser = resultObject.getString("fname");
-
-
-                        dbUsers.add(matchingUser);
-                    }*/
+                         matchingUser = resultObject.getString("fname");
+                         matchingUser += resultObject.getString("lname");
+                         dbUsers.add(matchingUser);
+                    }
                 }
-                allUsers.add(dbUsers);
             }
-            if(allUsers.size() == 0)
+          if(dbUsers.size() <= 1)
             {
                 Toast.makeText(getActivity(),"You have no friends.", Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        displayPartners(this.getView());
+    }
 
-       /* for(ArrayList x: allUsers) {
-            //broken. for some reason dbUsers elements are stored as objects and not string. figure this out later
-            for(String y: x) {
-                Toast.makeText(getActivity(), y, Toast.LENGTH_SHORT).show();
-            }
-        }*/
+    public void displayPartners(View v)
+    {
+        ListView partnerView = (ListView)v.findViewById(R.id.partners);
+        ArrayAdapter adapter = new ArrayAdapter(getActivity(),
+                android.R.layout.simple_list_item_1, dbUsers);
+        partnerView.setAdapter(adapter);
 
     }
 }

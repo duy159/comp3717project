@@ -57,6 +57,7 @@ public class MainActivity extends ActionBarActivity implements MongoAdapter {
     }
 
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -81,6 +82,39 @@ public class MainActivity extends ActionBarActivity implements MongoAdapter {
     @Override
     public void processResult(String result) {
 
+    }
+    public void editSchedule(View v)
+    {
+        EditText startTimeEdit = ((EditText) v.findViewById(R.id.startTimeInput));
+        EditText endTimeEdit = ((EditText) v.findViewById(R.id.endTimeInput));
+        EditText dayEdit = ((EditText) v.findViewById(R.id.dayInput));
+        String success = "Schedule Edited!";
+        String collection = COLLECTION_NAME;
+        JSONObject editUser = new JSONObject();
+        String myUser = Login.getGlobalUser();
+
+        String dbStartTime = startTimeEdit.getText().toString();
+        String dbEndTime = endTimeEdit.getText().toString();
+        String dbDay = dayEdit.getText().toString();
+        try {
+            Mongo.put(MainActivity.this, collection, editUser.put("user", myUser), editUser.put("starttime", dbStartTime));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            Mongo.put(MainActivity.this, collection, editUser.put("user", myUser), editUser.put("endtime", dbEndTime));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            Mongo.put(MainActivity.this, collection, editUser.put("user", myUser), editUser.put("day", dbDay));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Login.setGlobalDay(dbDay);
+        Login.setGlobalTimeStart(Integer.parseInt(dbStartTime));
+        Login.setGlobalTimeEnd(Integer.parseInt(dbEndTime));
+        Toast.makeText(this, success, Toast.LENGTH_SHORT).show();
     }
     public void editProfile(View v)
     {

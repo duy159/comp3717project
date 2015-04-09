@@ -7,10 +7,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/page_schedule"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:longClickable="false"
+            android:height="60dp" />
 
-    <CalendarView
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Set Day for Workout Request:"
+        android:id="@+id/textView3" />
+
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="514dp"
-        android:id="@+id/calendarView" />
+        android:layout_height="wrap_content"
+        android:id="@+id/dayInput"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Set StartTime (Format:2400)"
+        android:id="@+id/textView5" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/startTimeInput"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Set EndTime (Format:2400)"
+        android:id="@+id/textView7" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/endTimeInput" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Schedule"
+        android:id="@+id/setScheduleBtn"
+        android:layout_gravity="center_horizontal"
+        android:onClick="editSchedule"
+        android:nestedScrollingEnabled="false" />
+
 </LinearLayout>

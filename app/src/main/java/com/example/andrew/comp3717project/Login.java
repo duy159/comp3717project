@@ -79,21 +79,21 @@ public class Login extends Activity implements MongoAdapter {
     {
         globalDay = setDay;
     }
-    public static String globalTimeStart;
-    public static String getGlobalTimeStart()
+    public static int globalTimeStart;
+    public static int getGlobalTimeStart()
     {
         return globalTimeStart;
     }
-    public static void setGlobalTimeStart(String setTimeStart)
+    public static void setGlobalTimeStart(int setTimeStart)
     {
         globalTimeStart = setTimeStart;
     }
-    public static String globalTimeEnd;
-    public static String getGlobalTimeEnd()
+    public static int globalTimeEnd;
+    public static int getGlobalTimeEnd()
     {
         return globalTimeEnd;
     }
-    public static void setGlobalTimeEnd(String setTimeEnd)
+    public static void setGlobalTimeEnd(int setTimeEnd)
     {
         globalTimeEnd = setTimeEnd;
     }
@@ -199,8 +199,8 @@ public class Login extends Activity implements MongoAdapter {
                 globalEmail = resultObject.getString("email");
                 globalPass = resultObject.getString("pass");
                 globalDay = resultObject.getString("day");
-                globalTimeStart = resultObject.getString("timestart");
-                globalTimeEnd = resultObject.getString("timeend");
+                globalTimeStart = resultObject.getInt("timestart");
+                globalTimeEnd = resultObject.getInt("timeend");
                 globalPlace = resultObject.getString("place");
                 globalProfile = resultObject.getString("profile");
                 Toast.makeText(this, success,Toast.LENGTH_SHORT).show();

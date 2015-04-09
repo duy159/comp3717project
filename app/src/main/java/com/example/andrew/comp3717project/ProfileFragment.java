@@ -62,35 +62,7 @@ public class ProfileFragment extends Fragment  implements MongoAdapter{
         // Inflate the layout for this fragment\
         return view;
     }
-    public void editProfile(View v)
-    {
-        String success = "Profile Edited!";
-        String collection = COLLECTION_NAME;
-        JSONObject editUser = new JSONObject();
-        String myUser = Login.getGlobalUser();
-        String editProfile = ((EditText) v.findViewById(R.id.editText6)).getText().toString();
-        String editPhone = ((EditText) v.findViewById(R.id.editText5)).getText().toString();
-        String editEmail = ((EditText) v.findViewById(R.id.editText4)).getText().toString();
-        try {
-            Mongo.put(this, collection, editUser.put("user",myUser), editUser.put("profile", editProfile));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
-            Mongo.put(this, collection, editUser.put("user",myUser), editUser.put("email", editEmail));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
-            Mongo.put(this, collection, editUser.put("user",myUser), editUser.put("phone", editPhone));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Login.setGlobalProfile(editProfile);
-        Login.setGlobalEmail(editEmail);
-        Login.setGlobalPhone(editPhone);
-        Toast.makeText(getActivity(), success, Toast.LENGTH_SHORT).show();
-    }
+
     @Override
     public String dbName() {
         return  DB_NAME;
