@@ -22,6 +22,7 @@ public class MainActivity extends ActionBarActivity implements MongoAdapter {
     private static final String API_KEY = "11h4wQ_5jg2QpLBxQ8mIM0C2HYJ54iyE";
     private static final String DB_NAME = "workoutbuddies";
     private static final String COLLECTION_NAME = "registeredUsers";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class MainActivity extends ActionBarActivity implements MongoAdapter {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setDisplayShowTitleEnabled(false);
+
 
         Tab tab = actionBar.newTab()
                 .setText(R.string.tab_partners)
